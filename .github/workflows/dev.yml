@@ -15,7 +15,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 16
       - run: npm install
       - name: Initialize Google Cloud SDK & Deploy
         uses: kadirtereci/graphql-backend
