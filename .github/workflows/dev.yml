@@ -20,6 +20,6 @@ jobs:
       - name: Initialize Google Cloud SDK & Deploy
         uses: kadirtereci/graphql-backend
         with:
-          gae_config_path: './app.yaml'          
+          gae_config_path: "./app.yaml"
           service_account: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ secrets.PROJECT_ID }}
