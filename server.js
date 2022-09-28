@@ -4,7 +4,6 @@ const { buildSchema } = require("graphql");
 
 const app = express();
 
-
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`
   type Query {
@@ -19,6 +18,7 @@ const root = {
   },
 };
 
+app.set("trust proxy", true);
 
 app.use(
   "/graphql",
