@@ -1,6 +1,6 @@
-const express = require("express");
-const { graphqlHTTP } = require("express-graphql");
-const { buildSchema } = require("graphql");
+import { graphqlHTTP } from "express-graphql";
+import { buildSchema } from "graphql";
+import express from "express";
 
 const app = express();
 
@@ -33,5 +33,9 @@ app.all("/", (req, res) => {
   res.send("This route is only for 3rd party services");
 });
 
-app.listen(4000);
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`);
+});
 console.log("Running a GraphQL API server at http://localhost:8080/graphql");
