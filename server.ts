@@ -14,7 +14,7 @@ const schema = buildSchema(`
 // The root provides a resolver function for each API endpoint
 const root = {
   hello: () => {
-    return "Hello world!";
+    return "Hello world! -2";
   },
 };
 
@@ -30,7 +30,7 @@ app.use(
 );
 
 app.all("/", (req, res) => {
-  res.send("This route is only for 3rd party services");
+  res.send("This route is only for 3rd party services-1");
 });
 
 const PORT = process.env.PORT || 8080;
