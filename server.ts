@@ -18,7 +18,7 @@ const schema = buildSchema(`
   }
 
   type Mutation {
-    createMessage(input: MessageInput): Message
+    createMessage(input: MessageInput): Response
   }
 `);
 
