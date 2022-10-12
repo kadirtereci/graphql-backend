@@ -48,7 +48,7 @@ app.use(
 );
 
 app.all("/", (req, res) => {
-  res.send("This route is only for 3rd party services");
+  res.send("This route is only for 3rd party services.");
 });
 
 const PORT = process.env.PORT || 8080;
