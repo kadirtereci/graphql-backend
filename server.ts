@@ -2,24 +2,42 @@ import { graphqlHTTP } from "express-graphql";
 import { buildSchema } from "graphql";
 import express from "express";
 
-const app = express();
 
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`
+  input MessageInput {
+   text: String
+  }
+
+  type Response {
+    text: String
+  }
+
   type Query {
     hello: String
+  }
+
+  type Mutation {
+    createMessage(input: MessageInput): Message
   }
 `);
 
 // The root provides a resolver function for each API endpoint
 const root = {
   hello: () => {
-    return "Hello world! -2";
+    return "Hello world! -3";
+  },
+  oaks: () => {
+    return "We build startups!";
+  },
+  createMessage: ({ input }: { input: { text: string } }) => {
+    return {text:"Success"};
   },
 };
 
-app.set("trust proxy", true);
+const app = express();
 
+app.set("trust proxy", true);
 app.use(
   "/graphql",
   graphqlHTTP({
